@@ -1,0 +1,10 @@
+claims/
+package.json
+*/**/package.json
+apps/web/client/dist/
+apps/web/client/.angular
+apps/web/webpack_config/
+apps/web/tsconfig.json
+apps/web/bin/
+docs/insomnia_api_sync/*.json
+docs/insomnia_api_sync/*/**/*.json

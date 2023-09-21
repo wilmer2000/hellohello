@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Normalize CSS
+@import '../node_modules/normalize.css/normalize.css';
+
+// Importing grid
+@import 'assets/css/grid';
+@import 'assets/css/colors';
+
+
+html,body {
+  background-color: $gray-light;
+}
+
+
+

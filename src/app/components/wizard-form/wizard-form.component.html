@@ -1,0 +1,12 @@
+<div class='wizard-content'>
+  <ng-container *ngIf='currentStep < FORM_WIZARD_STEPS.length'>
+    <ng-container *ngComponentOutlet='FORM_WIZARD_STEPS[currentStep].component; inputs: { formBody }'></ng-container>
+    <div class='button-container'>
+      <button (click)='prevStep()' [disabled]='currentStep === 0'>Previous</button>
+      <button (click)='nextStep()' [disabled]='currentStep === FORM_WIZARD_STEPS.length - 1'>Next</button>
+    </div>
+  </ng-container>
+  <div *ngIf='currentStep === FORM_WIZARD_STEPS.length'>
+    <h2>Wizard Completed!</h2>
+  </div>
+</div>
