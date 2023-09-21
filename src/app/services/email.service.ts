@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
 import { API_URL_BASE } from '../constants/app.constants';
 import { IOption } from '../interfaces/option.interfaces';
-import { Observable } from 'rxjs';
+import { catchError, map, Observable, of } from 'rxjs';
 import { IFormBody } from '../interfaces/form-body.interfaces';
 
 @Injectable({
@@ -16,7 +15,9 @@ export class EmailService {
   }
 
   public getOptionsList(): Observable<IOption[]> {
-    return this.http.get<IOption[]>(`${API_URL_BASE}/options`);
+    return this.http.get<any[]>(`${API_URL_BASE}/options`).pipe(
+      catchError(() => of([]))
+    );
   }
 
   // public submitForm()

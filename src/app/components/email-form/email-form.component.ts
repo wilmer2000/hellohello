@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IWizardInputs } from '../wizard-form/wizard-form.component';
 
 @Component({
   selector: 'app-email-form',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./email-form.component.scss']
 })
 export class EmailFormComponent {
+  @Input()
+  public wizardInput: IWizardInputs;
 
 }

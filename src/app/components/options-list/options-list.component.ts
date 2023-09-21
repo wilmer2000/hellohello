@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IOption } from '../../interfaces/option.interfaces';
+import { IWizardInputs } from '../wizard-form/wizard-form.component';
 
 @Component({
   selector: 'app-options-list',
@@ -8,10 +9,14 @@ import { IOption } from '../../interfaces/option.interfaces';
 })
 export class OptionsListComponent {
   @Input()
-  public optionsList: IOption[] = [];
-
+  public wizardInput: IWizardInputs;
   @Output()
   public optionSelected = new EventEmitter<string>
+
+  public get optionList(): IOption[] {
+    console.log(this.wizardInput.optionList)
+    return this.wizardInput.optionList;
+  }
 
   public onOptionSelected(optionSelected: string) {
     this.optionSelected.emit(optionSelected);

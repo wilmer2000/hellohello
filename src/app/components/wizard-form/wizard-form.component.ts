@@ -2,12 +2,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IFormBody } from '../../interfaces/form-body.interfaces';
 import { OptionsListComponent } from '../options-list/options-list.component';
 import { EmailFormComponent } from '../email-form/email-form.component';
-import { SucesssFormComponent } from '../sucesss-form/sucesss-form.component';
+import { SuccessFormComponent } from '../success-form/success-form.component';
+import { IOption } from '../../interfaces/option.interfaces';
 
-// export interface IWizardSteps {
-//   id: string;
-//   component: any; // TODO
-// }
+export interface IWizardInputs {
+  formBody: IFormBody;
+  optionList: IOption[];
+}
 
 @Component({
   selector: 'app-wizard',
@@ -18,13 +19,13 @@ export class WizardFormComponent {
   @Output()
   public onSubmitForm = new EventEmitter<IFormBody>();
   @Input()
-  public formBody: IFormBody;
+  public wizardInput: IWizardInputs;
 
   public currentStep = 0;
   public readonly FORM_WIZARD_STEPS = [
     { id: 'WIZARD_STEP_1', component: OptionsListComponent },
     { id: 'WIZARD_STEP_2', component: EmailFormComponent },
-    { id: 'WIZARD_STEP_3', component: SucesssFormComponent }
+    { id: 'WIZARD_STEP_3', component: SuccessFormComponent }
   ];
 
   public nextStep() {

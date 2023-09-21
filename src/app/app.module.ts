@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormContentComponent } from './components/form-content/form-content.component';
 import { NgOptimizedImage } from '@angular/common';
 import { EmailFormComponent } from './components/email-form/email-form.component';
-import { SucesssFormComponent } from './components/sucesss-form/sucesss-form.component';
+import { SuccessFormComponent } from './components/success-form/success-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { SucesssFormComponent } from './components/sucesss-form/sucesss-form.com
     CardComponent,
     FormContentComponent,
     EmailFormComponent,
-    SucesssFormComponent
+    SuccessFormComponent
   ],
   imports: [
     HttpClientModule,

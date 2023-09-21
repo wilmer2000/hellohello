@@ -1,19 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { optionsListResolver } from './resolvers/options-list.resolver';
-import { WizardFormComponent } from './components/wizard-form/wizard-form.component';
+import { FormContentComponent } from './components/form-content/form-content.component';
 
 const routes: Routes = [{
   path: '',
-  children: [
-    {
-      path: '',
-      component: WizardFormComponent,
-      resolve: {
-        optionsList: optionsListResolver
-      }
-    }
-  ]
+  component: FormContentComponent,
+  resolve: {
+    optionsList: optionsListResolver
+  }
 }];
 
 @NgModule({

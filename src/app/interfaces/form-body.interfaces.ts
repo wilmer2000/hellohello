@@ -1,4 +1,4 @@
 export interface IFormBody {
-  email: string
-  option: string
+  email?: string
+  option?: string
 }

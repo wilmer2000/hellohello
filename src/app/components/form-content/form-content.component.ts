@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { IFormBody } from '../../interfaces/form-body.interfaces';
-import { IOption } from '../../interfaces/option.interfaces';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { FORM_DATA_STORAGE_KEY } from '../../constants/app.constants';
+import { ActivatedRoute } from '@angular/router';
+import { IWizardInputs } from '../wizard-form/wizard-form.component';
 
 @Component({
   selector: 'app-form-content',
@@ -10,19 +11,23 @@ import { FORM_DATA_STORAGE_KEY } from '../../constants/app.constants';
   styleUrls: ['./form-content.component.scss']
 })
 export class FormContentComponent implements OnInit {
-  public set formBody (formBody: IFormBody) {
-    this._formBody = formBody;
-  }
-  public get formBody(): IFormBody {
-    return this._formBody;
-  }
+  public wizardInput: IWizardInputs = { formBody: {}, optionList: [] };
 
   private _formBody: IFormBody;
 
-  constructor(private localStorage: LocalStorageService) {
+  constructor(private activatedRoute: ActivatedRoute, private localStorage: LocalStorageService) {
+
   }
 
   public ngOnInit(): void {
-    this._formBody = this.localStorage.getItem(FORM_DATA_STORAGE_KEY)
+    this.activatedRoute.data.subscribe(({ optionList }) => {
+      this.wizardInput.optionList = optionList;
+      this.setFormBody();
+    });
+  }
+
+  private setFormBody(): void {
+    this._formBody = this.localStorage.getItem(FORM_DATA_STORAGE_KEY);
+    this.wizardInput.formBody = this._formBody;
   }
 }
