@@ -1,7 +1,12 @@
-<div class='option-list-content'>
-  <h1 class='option-list-title'>Para comenzar seleccioná alguna de las siguientes opciones.</h1>
+<div class='option-list-content wizard-field-content'>
+  <h1 class='wizard-field-title'>Para comenzar seleccioná alguna de las siguientes opciones.</h1>
   <app-option *ngFor='let option of optionList'
               [option]='option'
               (optionSelected)='onOptionSelected(option.value)'>
   </app-option>
+  <div class='btn-content btn-to-right'>
+    <button class='btn btn-option-list'>
+      siguiente
+    </button>
+  </div>
 </div>

@@ -1,6 +1,7 @@
 @import '../../../assets/css/colors';
 @import '../../../assets/css/mixin';
 @import '../../../assets/css/sizes';
+@import '../../../assets/css/button';
 
 $card-max-width: 370px;
 $card-text-padding: 55px 20px 30px;
@@ -71,12 +72,7 @@ $card-btn-border: solid 1px $blue;
   }
 
   .card-btn {
-    @include border-radius();
+    @include button-styles($white, $blue, $blue);
     width: 100%;
-    background: $white;
-    color: $blue;
-    border: $card-btn-border;
-    padding: $size-15;
-    font-weight: 700;
   }
 }

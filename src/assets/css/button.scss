@@ -1,0 +1,18 @@
+@import "sizes";
+@import "mixin";
+@import "colors";
+
+$card-btn-border: solid 1px $blue;
+
+.btn-content {
+  margin-top: 60px;
+  display: flex;
+
+  &.btn-to-right {
+    flex-direction: row-reverse;
+  }
+}
+
+.btn {
+  @include button-styles();
+}

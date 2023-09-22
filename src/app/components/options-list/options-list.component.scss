@@ -1,12 +1,19 @@
 @import '../../../assets/css/sizes';
+@import '../../../assets/css/button';
+@import '../../../assets/css/mixin';
+
+$size-button: 170px;
+
+@include wizard-field-content();
 
 .option-list-content {
-  .option-list-title {
-    margin: 0 0 $size-30;
-  }
-
   app-option + app-option {
     margin-top: $size-20;
     display: block;
+  }
+
+  .btn-option-list {
+    @include button-styles($orange, $white, $orange);
+    width: $size-button;
   }
 }

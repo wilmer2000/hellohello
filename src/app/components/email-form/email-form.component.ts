@@ -10,4 +10,8 @@ export class EmailFormComponent {
   @Input()
   public wizardInput: IWizardInputs;
 
+  public onSubmit(): void {
+    // keep
+  }
+
 }

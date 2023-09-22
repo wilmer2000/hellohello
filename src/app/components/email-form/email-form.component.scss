@@ -1,0 +1,14 @@
+@import '../../../assets/css/field';
+@import '../../../assets/css/mixin';
+@import '../../../assets/css/button';
+
+$size-button: 145px;
+
+@include wizard-field-content();
+
+.email-form-content {
+  .btn-option-list {
+    @include button-styles($orange, $white, $orange);
+    width: $size-button;
+  }
+}

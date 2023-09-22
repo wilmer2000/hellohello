@@ -21,7 +21,7 @@ export class WizardFormComponent {
   @Input()
   public wizardInput: IWizardInputs;
 
-  public currentStep = 0;
+  public currentStep = 2;
   public readonly FORM_WIZARD_STEPS = [
     { id: 'WIZARD_STEP_1', component: OptionsListComponent },
     { id: 'WIZARD_STEP_2', component: EmailFormComponent },
