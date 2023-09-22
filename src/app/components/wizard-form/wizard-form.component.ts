@@ -7,7 +7,7 @@ import { IOption } from '../../interfaces/option.interfaces';
 
 export interface IWizardInputs {
   formBody: IFormBody;
-  optionList: IOption[];
+  optionsList: IOption[];
 }
 
 @Component({

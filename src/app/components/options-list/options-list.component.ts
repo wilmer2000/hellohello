@@ -14,8 +14,7 @@ export class OptionsListComponent {
   public optionSelected = new EventEmitter<string>
 
   public get optionList(): IOption[] {
-    console.log(this.wizardInput.optionList)
-    return this.wizardInput.optionList;
+    return this.wizardInput.optionsList;
   }
 
   public onOptionSelected(optionSelected: string) {

@@ -7,9 +7,16 @@
 @import 'assets/css/grid';
 @import 'assets/css/colors';
 
+// Importing Roboto Font
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
-html,body {
+* {
+  box-sizing: border-box;
+}
+body {
   background-color: $gray-light;
+  font-family: 'Roboto', sans-serif;
+  color: $almost-black;
 }
 
 

@@ -16,6 +16,7 @@ export class EmailService {
 
   public getOptionsList(): Observable<IOption[]> {
     return this.http.get<any[]>(`${API_URL_BASE}/options`).pipe(
+      map(e=> e),
       catchError(() => of([]))
     );
   }

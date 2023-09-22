@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IFormBody } from '../../interfaces/form-body.interfaces';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { FORM_DATA_STORAGE_KEY } from '../../constants/app.constants';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Data } from '@angular/router';
 import { IWizardInputs } from '../wizard-form/wizard-form.component';
 
 @Component({
@@ -11,7 +11,7 @@ import { IWizardInputs } from '../wizard-form/wizard-form.component';
   styleUrls: ['./form-content.component.scss']
 })
 export class FormContentComponent implements OnInit {
-  public wizardInput: IWizardInputs = { formBody: {}, optionList: [] };
+  public wizardInput: IWizardInputs = { formBody: {}, optionsList: [] };
 
   private _formBody: IFormBody;
 
@@ -20,8 +20,8 @@ export class FormContentComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.activatedRoute.data.subscribe(({ optionList }) => {
-      this.wizardInput.optionList = optionList;
+    this.activatedRoute.data.subscribe(({ optionsList }) => {
+      this.wizardInput.optionsList = optionsList;
       this.setFormBody();
     });
   }

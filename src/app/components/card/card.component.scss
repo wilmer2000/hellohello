@@ -1,0 +1,80 @@
+@import '../../../assets/css/colors';
+@import '../../../assets/css/mixin';
+@import '../../../assets/css/sizes';
+
+$card-max-width: 370px;
+$card-text-padding: 55px 25px 30px;
+$card-icon-size: 65px;
+$card-icon-left-space: 25px;
+$card-icon-top-space: 25px;
+$card-list-item-height: 20px;
+$card-btn-border: solid 1px $blue;
+
+.card-content {
+  max-width: $card-max-width;
+  background-color: $white;
+  @include box-shadow();
+  border-radius: $size-5;
+
+  figure {
+    margin: 0;
+  }
+
+  figcaption {
+    padding: $card-text-padding;
+  }
+
+  .card-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .card-text {
+    position: relative;
+  }
+
+  .card-text:before {
+    content: '';
+    display: block;
+    width: $card-icon-size;
+    height: $card-icon-size;
+    position: absolute;
+    z-index: 1;
+    top: -$card-icon-top-space;
+    left: $card-icon-left-space;
+    background: url('../../../assets/img/icon-home.svg') no-repeat center, $white;
+    border-radius: 50%;
+    @include box-shadow();
+  }
+
+  .card-title {
+    margin: 0 0 $size-15;
+  }
+
+  .card-list {
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: block;
+      height: $card-list-item-height;
+      background: url('../../../assets/img/icon-card.svg') no-repeat left center;
+      padding-left: $size-30;
+      color: $gray;
+
+      + li {
+        margin-top: $size-20;
+      }
+    }
+  }
+
+  .card-btn {
+    width: 100%;
+    background: $white;
+    color: $blue;
+    border: $card-btn-border;
+    padding: $size-15;
+    font-weight: 700;
+  }
+}
