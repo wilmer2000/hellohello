@@ -3,12 +3,15 @@
 @import '../../../assets/css/sizes';
 
 $card-max-width: 370px;
-$card-text-padding: 55px 25px 30px;
+$card-text-padding: 55px 20px 30px;
 $card-icon-size: 65px;
-$card-icon-left-space: 25px;
+$card-icon-left-space: 20px;
 $card-icon-top-space: 25px;
 $card-list-item-height: 20px;
+$card-list-item-icon-space: 35px;
+$card-list-padding: 20px 0 30px;
 $card-btn-border: solid 1px $blue;
+$card-btn-border-radius: 5px;
 
 .card-content {
   max-width: $card-max-width;
@@ -21,17 +24,22 @@ $card-btn-border: solid 1px $blue;
   }
 
   figcaption {
-    padding: $card-text-padding;
   }
 
   .card-img {
     width: 100%;
     height: auto;
     display: block;
+    border-radius: $size-5 $size-5 0 0;
+  }
+
+  .card-paragraph {
+    margin: 0;
   }
 
   .card-text {
     position: relative;
+    padding: $card-text-padding;
   }
 
   .card-text:before {
@@ -54,13 +62,13 @@ $card-btn-border: solid 1px $blue;
 
   .card-list {
     margin: 0;
-    padding: 0;
+    padding: $card-list-padding;
 
     li {
       display: block;
       height: $card-list-item-height;
       background: url('../../../assets/img/icon-card.svg') no-repeat left center;
-      padding-left: $size-30;
+      padding-left: $card-list-item-icon-space;
       color: $gray;
 
       + li {
@@ -76,5 +84,6 @@ $card-btn-border: solid 1px $blue;
     border: $card-btn-border;
     padding: $size-15;
     font-weight: 700;
+    border-radius: $card-btn-border-radius;
   }
 }
