@@ -1,7 +1,18 @@
-
 $form-content-width-size: 860px;
+$form-content-card-size: 370px;
+$form-content-margin-size: 100px auto 0;
+
 .form-content {
   width: 100%;
   max-width: $form-content-width-size;
+  margin: $form-content-margin-size;
 
+  .left-content {
+    flex: 1 1 auto;
+    padding-right: 100px;
+  }
+
+  .right-content {
+    flex-basis: $form-content-card-size;
+  }
 }

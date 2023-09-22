@@ -1,3 +1,7 @@
 <div class='option-list-content'>
-  <app-option *ngFor='let option of optionList' [option]='option' (optionSelected)='onOptionSelected(option.value)'></app-option>
+  <h1 class='option-list-title'>Para comenzar seleccioná alguna de las siguientes opciones.</h1>
+  <app-option *ngFor='let option of optionList'
+              [option]='option'
+              (optionSelected)='onOptionSelected(option.value)'>
+  </app-option>
 </div>

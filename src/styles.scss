@@ -17,6 +17,20 @@ body {
   background-color: $gray-light;
   font-family: 'Roboto', sans-serif;
   color: $almost-black;
+  font-weight: 300;
+}
+
+b,
+strong,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th,
+button {
+  font-width: 700;
 }
 
 

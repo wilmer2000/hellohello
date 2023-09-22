@@ -6,35 +6,28 @@ $card-max-width: 370px;
 $card-text-padding: 55px 20px 30px;
 $card-icon-size: 65px;
 $card-icon-left-space: 20px;
-$card-icon-top-space: 25px;
+$card-icon-top-space: -40px;
 $card-list-item-height: 20px;
 $card-list-item-icon-space: 35px;
 $card-list-padding: 20px 0 30px;
 $card-btn-border: solid 1px $blue;
-$card-btn-border-radius: 5px;
 
 .card-content {
-  max-width: $card-max-width;
-  background-color: $white;
   @include box-shadow();
-  border-radius: $size-5;
+  @include border-radius();
+  width: $card-max-width;
+  background-color: $white;
 
-  figure {
+  figure,
+  .card-paragraph {
     margin: 0;
-  }
-
-  figcaption {
   }
 
   .card-img {
+    @include border-radius($size-5 $size-5 0 0);
     width: 100%;
     height: auto;
     display: block;
-    border-radius: $size-5 $size-5 0 0;
-  }
-
-  .card-paragraph {
-    margin: 0;
   }
 
   .card-text {
@@ -43,17 +36,17 @@ $card-btn-border-radius: 5px;
   }
 
   .card-text:before {
+    @include box-shadow();
     content: '';
     display: block;
     width: $card-icon-size;
     height: $card-icon-size;
     position: absolute;
     z-index: 1;
-    top: -$card-icon-top-space;
+    top: $card-icon-top-space;
     left: $card-icon-left-space;
     background: url('../../../assets/img/icon-home.svg') no-repeat center, $white;
     border-radius: 50%;
-    @include box-shadow();
   }
 
   .card-title {
@@ -78,12 +71,12 @@ $card-btn-border-radius: 5px;
   }
 
   .card-btn {
+    @include border-radius();
     width: 100%;
     background: $white;
     color: $blue;
     border: $card-btn-border;
     padding: $size-15;
     font-weight: 700;
-    border-radius: $card-btn-border-radius;
   }
 }

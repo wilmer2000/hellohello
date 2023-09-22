@@ -1,0 +1,58 @@
+@import '../../../assets/css/colors';
+@import '../../../assets/css/mixin';
+@import '../../../assets/css/sizes';
+
+$option-icon-size: 60px;
+$option-padding-size: 0 80px 0 25px;
+$option-border: solid 2px $white;
+$option-min-height: 95px;
+$option-text-padding-size: 25px;
+
+.option-content {
+  @include box-shadow();
+  @include border-radius();
+  background: $white;
+  display: flex;
+  align-items: center;
+  padding: $option-padding-size;
+  border: $option-border;
+  min-height: $option-min-height;
+
+  position: relative;
+
+  &.option-selected {
+    border-color: $orange;
+  }
+
+  &:before {
+    content: url('../../../assets/img/icon-chevron-right.svg');
+    display: block;
+    position: absolute;
+    z-index: 1;
+    height: 22px;
+    margin-top: -11px;
+    top: 50%;
+    right: 20px;
+  }
+}
+
+.option-icon {
+  flex: 0 1 auto;
+
+  img {
+    @include border-radius();
+    width: $option-icon-size;
+    height: auto;
+    display: block;
+  }
+}
+
+.option-text {
+  flex: 1 1 auto;
+  font-weight: 700;
+  padding-left: $option-text-padding-size;
+
+  p {
+    margin: 0;
+  }
+}
