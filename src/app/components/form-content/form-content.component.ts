@@ -15,9 +15,7 @@ export class FormContentComponent implements OnInit {
 
   private _formBody: IFormBody;
 
-  constructor(private activatedRoute: ActivatedRoute, private localStorage: LocalStorageService) {
-
-  }
+  constructor(private activatedRoute: ActivatedRoute, private localStorage: LocalStorageService) {}
 
   public ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ optionsList }) => {

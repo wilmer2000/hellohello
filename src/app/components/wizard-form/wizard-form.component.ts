@@ -39,5 +39,4 @@ export class WizardFormComponent {
       this.currentStep--;
     }
   }
-
 }
