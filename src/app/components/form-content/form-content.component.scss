@@ -1,11 +1,15 @@
-$form-content-width-size: 860px;
+@import '../../../assets/css/sizes';
+
+$form-content-width-size: 890px;
 $form-content-card-size: 370px;
-$form-content-margin-size: 100px auto 0;
+$form-content-margin-size: 0 auto;
+$form-content-padding-top-size: 100px;
 
 .form-content {
   width: 100%;
   max-width: $form-content-width-size;
   margin: $form-content-margin-size;
+  padding: $form-content-padding-top-size $size-15 0;
 
   .left-content {
     flex: 1 1 auto;

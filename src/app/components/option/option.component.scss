@@ -17,7 +17,6 @@ $option-text-padding-size: 25px;
   padding: $option-padding-size;
   border: $option-border;
   min-height: $option-min-height;
-
   position: relative;
 
   &.option-selected {
@@ -33,6 +32,10 @@ $option-text-padding-size: 25px;
     margin-top: -11px;
     top: 50%;
     right: 20px;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 }
 

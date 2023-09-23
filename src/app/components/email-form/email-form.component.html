@@ -2,13 +2,17 @@
   <h1 class='wizard-field-title'>Para terminar completá el siguiente formulario.</h1>
   <div class='email-form'>
     <div class='field-group'>
-      <label for='email' class='field-label'>Correo electrónico</label>
-      <input type='email' id='email' class='field-input'>
-      <span class='field-error'>Por favor, ingresá un correo eléctronico valido</span>
+      <label class='field-label' for='email'>Correo electrónico</label>
+      <input [formControl]='emailForm' class='field-input' id='email' type='email'>
+      <!--      <ng-template *ngIf='emailForm.invalid  &&  (emailForm.dirty || emailForm.touched)'>-->
+      <!--        <span  *ngIf="emailForm" class='field-error'>Por favor, ingresá un correo eléctronico valido</span>-->
+      <!--      </ng-template>-->
+      <span *ngIf='emailForm.hasError("email")' class='field-error'>Por favor, ingresá un correo eléctronico valido</span>
+
     </div>
   </div>
   <div class='btn-content btn-to-right'>
-    <button class='btn btn-option-list' (click)='onSubmit()'>
+    <button (click)='onSubmit()' class='btn btn-option-list'>
       Enviar
     </button>
   </div>

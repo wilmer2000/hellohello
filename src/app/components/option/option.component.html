@@ -1,6 +1,10 @@
-<div class='option-content option-selected' (click)='onSelectOption(option.value)'>
+<div (click)='onSelectOption(option.value)'
+     (keyup)='onSelectOption(option.value)'
+     [ngClass]='{ "option-selected":  isOptionSelected(option.value) }'
+     class='option-content'
+     tabindex='0'>
   <div class='option-icon'>
-    <img ngSrc='{{ option.image }}' height='80' width='120' alt='{{ option.label }}'>
+    <img alt='{{ option.label }}' height='80' ngSrc='{{ option.image }}' width='120'>
   </div>
   <div class='option-text'>
     <p>{{ option.label }}</p>

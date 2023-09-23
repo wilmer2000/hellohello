@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IOption } from '../../interfaces/option.interfaces';
-import { IWizardInputs } from '../wizard-form/wizard-form.component';
+import { WizardService, WizardStepList } from '../../services/wizard.service';
 
 @Component({
   selector: 'app-options-list',
@@ -9,15 +9,12 @@ import { IWizardInputs } from '../wizard-form/wizard-form.component';
 })
 export class OptionsListComponent {
   @Input()
-  public wizardInput: IWizardInputs;
-  @Output()
-  public optionSelected = new EventEmitter<string>
+  public optionsList: IOption[];
+  protected readonly WizardStepList = WizardStepList;
 
-  public get optionList(): IOption[] {
-    return this.wizardInput.optionsList;
+  constructor(private wizardService: WizardService) {
   }
-
-  public onOptionSelected(optionSelected: string) {
-    this.optionSelected.emit(optionSelected);
+  public nextStep(step: WizardStepList) {
+    this.wizardService.goToStep(step);
   }
 }

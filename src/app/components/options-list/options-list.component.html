@@ -1,11 +1,10 @@
 <div class='option-list-content wizard-field-content'>
   <h1 class='wizard-field-title'>Para comenzar seleccioná alguna de las siguientes opciones.</h1>
-  <app-option *ngFor='let option of optionList'
-              [option]='option'
-              (optionSelected)='onOptionSelected(option.value)'>
+  <app-option *ngFor='let option of optionsList'
+              [option]='option'>
   </app-option>
   <div class='btn-content btn-to-right'>
-    <button class='btn btn-option-list'>
+    <button class='btn btn-option-list' (click)='nextStep(WizardStepList.Step2)'>
       siguiente
     </button>
   </div>

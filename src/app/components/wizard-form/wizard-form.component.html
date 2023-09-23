@@ -1,5 +1,16 @@
-<div class='wizard-content'>
-  <ng-container *ngIf='currentStep < FORM_WIZARD_STEPS.length'>
-    <ng-container *ngComponentOutlet='FORM_WIZARD_STEPS[currentStep].component; inputs: { wizardInput }'></ng-container>
-  </ng-container>
+<!--<div class='wizard-content'>-->
+<!--  <ng-container *ngIf='currentStep < FORM_WIZARD_STEPS.length'>-->
+<!--    <ng-container *ngComponentOutlet='FORM_WIZARD_STEPS[currentStep].component; inputs: { wizardInput }'></ng-container>-->
+<!--  </ng-container>-->
+<!--</div>-->
+<div class="wizard">
+  <div *ngIf="wizardService.currentStep === WizardStepList.Step1">
+    <app-options-list [optionsList]='wizardService.wizardData.optionsList'></app-options-list>
+  </div>
+  <div *ngIf="wizardService.currentStep === WizardStepList.Step2">
+    <app-email-form [emailForm]='wizardService.wizardData.formBody.email'></app-email-form>
+  </div>
+  <div *ngIf="wizardService.currentStep === WizardStepList.Step3">
+    <h1>ApP 3</h1>
+  </div>
 </div>
