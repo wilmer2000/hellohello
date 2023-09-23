@@ -19,6 +19,7 @@ export enum WizardStepList {
 export class WizardService {
   public currentStep: WizardStepList = WizardStepList.Step1;
   public wizardData: IWizardData;
+
   constructor() {
     this.wizardData = {
       optionsList: [],
@@ -31,8 +32,4 @@ export class WizardService {
     this.currentStep = step;
   }
 
-  // Method to save user data
-  // public saveaveUserData(data: IUserData) {
-  //   this.wizardData = { ...this.wizardData, ...data };
-  // }
 }

@@ -23,7 +23,7 @@ export class EmailService {
     const { email, option } = this.wizardService.wizardData.formBody;
     console.log(email.value, option);
 
-    return this.http.post<IErrorMsg>(`${API_URL_BASE}/api/send?email=${email.value}&option=${option}`, {}).pipe(
+    return this.http.post<IErrorMsg>(`/api/send?email=${email.value}&option=${option}`, {}).pipe(
       map(e => e),
       catchError(() => of())
     );

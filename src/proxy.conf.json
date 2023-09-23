@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "https://api-demo-hh.vercel.app",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}
