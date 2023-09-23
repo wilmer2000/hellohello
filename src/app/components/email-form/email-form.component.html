@@ -8,7 +8,7 @@
     </div>
   </div>
   <div class='btn-content btn-to-right'>
-    <button (click)='onSubmit()' [disabled]='emailForm.hasError("email")' class='btn btn-option-list'>
+    <button (click)='onSubmit()' [disabled]='emailForm.hasError("email") || (emailForm.untouched || !emailForm.value)' class='btn btn-option-list'>
       Enviar
     </button>
   </div>

@@ -14,14 +14,13 @@ export class EmailService {
   }
 
   public getOptionsList(): Observable<IOption[]> {
-    return this.http.get<any[]>(`${API_URL_BASE}/options`).pipe(
+    return this.http.get<IOption[]>(`${API_URL_BASE}/options`).pipe(
       catchError(() => of([]))
     );
   }
 
   public submitForm(): Observable<IErrorMsg> {
     const { email, option } = this.wizardService.wizardData.formBody;
-
 
     return this.http.post<IErrorMsg>(`/api/send?email=${email.value}&option=${option}`, {}).pipe(
       catchError(() => of())

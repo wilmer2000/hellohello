@@ -23,11 +23,13 @@ export class WizardService {
   constructor() {
     this.wizardData = {
       optionsList: [],
-      formBody: { email: new FormControl('', [Validators.required, Validators.email]), option: '' }
+      formBody: {
+        email: new FormControl('', [Validators.required, Validators.email, Validators.pattern(/^\s*$/)]),
+        option: ''
+      }
     };
   }
 
-  // Methods to navigate between steps
   public goToStep(step: WizardStepList) {
     this.currentStep = step;
   }
