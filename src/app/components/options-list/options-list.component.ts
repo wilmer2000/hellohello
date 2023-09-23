@@ -14,6 +14,11 @@ export class OptionsListComponent {
 
   constructor(private wizardService: WizardService) {
   }
+
+  public get hasOptionSelected(): boolean {
+    return !this.wizardService.wizardData.formBody.option.length;
+  }
+
   public nextStep(step: WizardStepList) {
     this.wizardService.goToStep(step);
   }

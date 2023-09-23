@@ -17,7 +17,8 @@ export class EmailFormComponent {
 
   public onSubmit() {
     if (this.emailForm.valid) {
-      this.emailService.submitForm().subscribe((resp) => {
+      this.emailService.submitForm().subscribe((res) => {
+        console.log(res);
         this.nextStep()
       });
     }

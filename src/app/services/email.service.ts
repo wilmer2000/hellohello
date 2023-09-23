@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { API_URL_BASE } from '../constants/app.constants';
 import { IOption } from '../interfaces/option.interfaces';
-import { catchError, map, Observable, of } from 'rxjs';
+import { catchError, Observable, of } from 'rxjs';
 import { WizardService } from './wizard.service';
 import { IErrorMsg } from '../interfaces/error.interfaces';
 
@@ -21,10 +21,9 @@ export class EmailService {
 
   public submitForm(): Observable<IErrorMsg> {
     const { email, option } = this.wizardService.wizardData.formBody;
-    console.log(email.value, option);
+
 
     return this.http.post<IErrorMsg>(`/api/send?email=${email.value}&option=${option}`, {}).pipe(
-      map(e => e),
       catchError(() => of())
     );
   }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { WizardService, WizardStepList } from '../../services/wizard.service';
 
 @Component({
   selector: 'app-success-form',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class SuccessFormComponent {
 
+  protected readonly WizardStepList = WizardStepList;
+
+  constructor(private wizardService: WizardService) {
+  }
+
+  public nextStep(step: WizardStepList) {
+    this.wizardService.goToStep(step);
+  }
 }

@@ -18,6 +18,7 @@ $option-text-padding-size: 25px;
   border: $option-border;
   min-height: $option-min-height;
   position: relative;
+  transition: box-shadow 300ms ease-out;
 
   &.option-selected {
     border-color: $orange;
@@ -25,6 +26,7 @@ $option-text-padding-size: 25px;
 
   &:before {
     content: url('../../../assets/img/icon-chevron-right.svg');
+    transition: right 100ms ease-out;
     display: block;
     position: absolute;
     z-index: 1;
@@ -36,6 +38,11 @@ $option-text-padding-size: 25px;
 
   &:hover {
     cursor: pointer;
+    @include box-shadow(0px 10px 16px 0px rgb(86 80 76 / 17%));
+
+    &:before {
+      right: 10px;
+    }
   }
 }
 
