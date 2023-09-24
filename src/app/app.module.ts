@@ -13,6 +13,8 @@ import { NgOptimizedImage } from '@angular/common';
 import { EmailFormComponent } from './components/email-form/email-form.component';
 import { SuccessFormComponent } from './components/success-form/success-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { httpInterceptorProviders } from './interceptors';
+import { ErrorFormComponent } from './components/error-form/error-form.component';
 
 @NgModule({
   declarations: [
@@ -23,17 +25,21 @@ import { ReactiveFormsModule } from '@angular/forms';
     CardComponent,
     FormContentComponent,
     EmailFormComponent,
-    SuccessFormComponent
+    SuccessFormComponent,
+    ErrorFormComponent
   ],
-    imports: [
-        HttpClientModule,
-        NgOptimizedImage,
-        BrowserModule,
-        AppRoutingModule,
-        NgOptimizedImage,
-        ReactiveFormsModule
-    ],
-  providers: [],
+  imports: [
+    HttpClientModule,
+    NgOptimizedImage,
+    BrowserModule,
+    AppRoutingModule,
+    NgOptimizedImage,
+    ReactiveFormsModule
+  ],
+  providers: [
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

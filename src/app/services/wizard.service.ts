@@ -10,7 +10,8 @@ export interface IWizardData {
 export enum WizardStepList {
   Step1 = 'Step1',
   Step2 = 'Step2',
-  Step3 = 'Step3'
+  Step3 = 'Step3',
+  Error = 'Error'
 }
 
 @Injectable({
@@ -34,4 +35,8 @@ export class WizardService {
     this.currentStep = step;
   }
 
+  public clearData(): void {
+    this.wizardData.formBody.option = '';
+    this.wizardData.formBody.email.reset();
+  }
 }

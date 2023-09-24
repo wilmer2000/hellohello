@@ -14,6 +14,11 @@ export class SuccessFormComponent {
   }
 
   public nextStep(step: WizardStepList) {
+    this.clearWizardData();
     this.wizardService.goToStep(step);
+  }
+
+  private clearWizardData() {
+    this.wizardService.clearData();
   }
 }

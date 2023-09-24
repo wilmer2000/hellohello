@@ -8,4 +8,7 @@
   <div *ngIf='wizardService.currentStep === WizardStepList.Step3'>
     <app-success-form></app-success-form>
   </div>
+  <div *ngIf='wizardService.currentStep === WizardStepList.Error'>
+    <app-success-form></app-success-form>
+  </div>
 </div>

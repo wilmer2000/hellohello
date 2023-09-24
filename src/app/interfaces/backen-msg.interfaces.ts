@@ -1,4 +1,4 @@
-export interface IErrorMsg {
+export interface IBackendMsg {
   error: boolean
   message: string
 }

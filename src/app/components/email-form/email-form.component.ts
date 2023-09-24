@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { WizardService, WizardStepList } from '../../services/wizard.service';
 import { FormControl } from '@angular/forms';
 import { EmailService } from '../../services/email.service';
+import { IErrorBackend } from '../../interceptors/http-error.interceptor';
 
 @Component({
   selector: 'app-email-form',
@@ -17,15 +18,17 @@ export class EmailFormComponent {
 
   public onSubmit() {
     if (this.emailForm.value) {
-      this.emailService.submitForm().subscribe((res) => {
-        console.log(res);
-        this.nextStep()
+      this.emailService.submitForm().subscribe((res: IErrorBackend) => {
+        if (!res.error) {
+          this.nextStep(WizardStepList.Step3);
+        } else {
+          this.nextStep(WizardStepList.Error);
+        }
       });
     }
   }
 
-  public nextStep() {
-    this.wizardService.goToStep(WizardStepList.Step3);
+  private nextStep(step: WizardStepList) {
+    this.wizardService.goToStep(step);
   }
-
 }
