@@ -1,0 +1,13 @@
+@import '../../../assets/css/mixin';
+@import '../../../assets/css/button';
+
+$size-button: 130px;
+
+@include wizard-field-content();
+
+.success-form-content {
+  .btn-option-list {
+    @include button-styles(orange);
+    width: $size-button;
+  }
+}
