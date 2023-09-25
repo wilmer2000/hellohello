@@ -15,6 +15,7 @@ import { SuccessFormComponent } from './components/success-form/success-form.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { httpInterceptorProviders } from './interceptors';
 import { ErrorFormComponent } from './components/error-form/error-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ErrorFormComponent } from './components/error-form/error-form.component
     BrowserModule,
     AppRoutingModule,
     NgOptimizedImage,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     httpInterceptorProviders

@@ -9,7 +9,7 @@ import { WizardService, WizardStepList } from '../../services/wizard.service';
 })
 export class OptionsListComponent {
   @Input()
-  public optionsList: IOption[];
+  public optionsList: IOption[];  
   protected readonly WizardStepList = WizardStepList;
 
   constructor(private wizardService: WizardService) {
