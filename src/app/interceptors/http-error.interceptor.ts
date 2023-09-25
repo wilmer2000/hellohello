@@ -21,7 +21,6 @@ export class HttpErrorInterceptor implements HttpInterceptor {
           return event;
         },
         error: () => {
-          console.log(`throwError(() => new Error('Server Error'))`);
           return throwError(() => new Error('Server Error'));
         }
       })

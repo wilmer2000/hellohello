@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { API_URL_BASE } from '../constants/app.constants';
 import { IOption } from '../interfaces/option.interfaces';
-import { catchError, Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { WizardService } from './wizard.service';
 import { IBackendMsg } from '../interfaces/backen-msg.interfaces';
 
@@ -14,16 +14,12 @@ export class EmailService {
   }
 
   public getOptionsList(): Observable<IOption[]> {
-    return this.http.get<IOption[]>(`${API_URL_BASE}/options`).pipe(
-      catchError(() => of([]))
-    );
+    return this.http.get<IOption[]>(`${API_URL_BASE}/options`);
   }
 
   public submitForm(): Observable<IBackendMsg> {
     const { email, option } = this.wizardService.wizardData.formBody;
 
-    return this.http.post<IBackendMsg>(`/api/send?email=${email.value}&option=${option}`, {}).pipe(
-      catchError(() => of())
-    );
+    return this.http.post<IBackendMsg>(`/api/send?email=${email.value}&option=${option}`, {});
   }
 }
