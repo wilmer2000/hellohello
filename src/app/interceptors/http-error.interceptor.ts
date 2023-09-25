@@ -1,12 +1,7 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-
-export interface IErrorBackend {
-  error: boolean,
-  message: string
-}
+import { IBackendMsg } from '../interfaces/backen-msg.interfaces';
 
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
@@ -18,7 +13,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
       tap({
         next: (event: HttpEvent<unknown>) => {
           if (event instanceof HttpResponse) {
-            const responseBody: IErrorBackend = event.body as IErrorBackend;
+            const responseBody: IBackendMsg = event.body as IBackendMsg;
             if (!this.isValidResponse(responseBody)) {
               throw new Error('Invalid response body');
             }
@@ -26,16 +21,14 @@ export class HttpErrorInterceptor implements HttpInterceptor {
           return event;
         },
         error: () => {
+          console.log(`throwError(() => new Error('Server Error'))`);
           return throwError(() => new Error('Server Error'));
         }
-      }),
-      catchError((requestError) => {
-        return throwError(() => new Error(requestError));
       })
     );
   }
 
-  private isValidResponse(responseBody: IErrorBackend): boolean {
+  private isValidResponse(responseBody: IBackendMsg): boolean {
     return responseBody && !responseBody.error;
   }
 }

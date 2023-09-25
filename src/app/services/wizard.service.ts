@@ -25,7 +25,7 @@ export class WizardService {
     this.wizardData = {
       optionsList: [],
       formBody: {
-        email: new FormControl('', [Validators.required, Validators.email, Validators.pattern(/^\s*$/)]),
+        email: new FormControl('', [Validators.required]),
         option: ''
       }
     };
@@ -38,5 +38,24 @@ export class WizardService {
   public clearData(): void {
     this.wizardData.formBody.option = '';
     this.wizardData.formBody.email.reset();
+  }
+
+  private emailValidator(control: { value: string; }) {
+    // if (control.value) {
+    //   // const matches = control.value.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/);
+    //   const matches = control.value.match('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$');
+    //   return matches ? null : { 'invalidEmail': true };
+    // } else {
+    //   return null;
+    // }
+    const email = control.value;
+    if (!email) {
+      return null;
+    }
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailPattern.test(email)) {
+      return { invalidEmail: true };
+    }
+    return null;
   }
 }

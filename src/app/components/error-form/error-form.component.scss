@@ -5,7 +5,7 @@ $size-button: 130px;
 
 @include wizard-field-content();
 
-.success-form-content {
+.error-form-content {
   .btn-option-list {
     @include button-styles(orange);
     width: $size-button;
