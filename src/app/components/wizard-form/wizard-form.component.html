@@ -1,14 +1,22 @@
 <div class='wizard'>
   <div *ngIf='wizardService.currentStep === WizardStepList.Step1'>
-    <app-options-list @fadeInOut [optionsList]='wizardService.wizardData.optionsList'></app-options-list>
+    <div @stepAnim>
+      <app-options-list [optionsList]='wizardService.wizardData.optionsList'></app-options-list>
+    </div>
   </div>
   <div *ngIf='wizardService.currentStep === WizardStepList.Step2'>
-    <app-email-form @fadeInOut [emailForm]='wizardService.wizardData.formBody.email'></app-email-form>
+    <div @stepAnim>
+      <app-email-form [emailForm]='wizardService.wizardData.formBody.email'></app-email-form>
+    </div>
   </div>
   <div *ngIf='wizardService.currentStep === WizardStepList.Step3'>
-    <app-success-form @fadeInOut ></app-success-form>
+    <div @stepAnim>
+      <app-success-form></app-success-form>
+    </div>
   </div>
   <div *ngIf='wizardService.currentStep === WizardStepList.Error'>
-    <app-error-form @fadeInOut ></app-error-form>
+    <div @stepAnim>
+      <app-error-form></app-error-form>
+    </div>
   </div>
 </div>
