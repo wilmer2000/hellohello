@@ -1,8 +1,8 @@
 <div class='success-form-content wizard-field-content'>
-  <img class='wizard-field-icon' ngSrc='assets/img/icon-success.svg' height='60' width='60'>
+  <img class='wizard-field-icon' ngSrc='assets/img/icon-success.svg' height='60' width='60' priority='true' alt=''>
   <h1 class='wizard-field-title'>Gracias por completar nuestro formulario.</h1>
   <div class='btn-content btn-to-right'>
-    <button class='btn btn-option-list'>
+    <button class='btn btn-option-list' (click)='nextStep(WizardStepList.Step1)'>
       volver
     </button>
   </div>

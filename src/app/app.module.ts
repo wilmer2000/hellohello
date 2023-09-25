@@ -12,6 +12,10 @@ import { FormContentComponent } from './components/form-content/form-content.com
 import { NgOptimizedImage } from '@angular/common';
 import { EmailFormComponent } from './components/email-form/email-form.component';
 import { SuccessFormComponent } from './components/success-form/success-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { httpInterceptorProviders } from './interceptors';
+import { ErrorFormComponent } from './components/error-form/error-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,16 +26,22 @@ import { SuccessFormComponent } from './components/success-form/success-form.com
     CardComponent,
     FormContentComponent,
     EmailFormComponent,
-    SuccessFormComponent
+    SuccessFormComponent,
+    ErrorFormComponent
   ],
   imports: [
     HttpClientModule,
     NgOptimizedImage,
     BrowserModule,
     AppRoutingModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

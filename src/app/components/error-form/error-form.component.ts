@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { WizardService, WizardStepList } from '../../services/wizard.service';
 
 @Component({
-  selector: 'app-success-form',
-  templateUrl: './success-form.component.html',
-  styleUrls: ['./success-form.component.scss']
+  selector: 'app-error-form',
+  templateUrl: './error-form.component.html',
+  styleUrls: ['./error-form.component.scss']
 })
-export class SuccessFormComponent {
+export class ErrorFormComponent {
 
   protected readonly WizardStepList = WizardStepList;
 
@@ -14,11 +14,6 @@ export class SuccessFormComponent {
   }
 
   public nextStep(step: WizardStepList) {
-    this.clearWizardData();
     this.wizardService.goToStep(step);
-  }
-
-  private clearWizardData() {
-    this.wizardService.clearData();
   }
 }

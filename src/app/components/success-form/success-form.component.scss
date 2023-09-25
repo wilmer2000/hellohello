@@ -7,7 +7,7 @@ $size-button: 130px;
 
 .success-form-content {
   .btn-option-list {
-    @include button-styles($orange, $white, $orange);
+    @include button-styles(orange);
     width: $size-button;
   }
 }

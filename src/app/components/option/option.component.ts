@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IOption } from '../../interfaces/option.interfaces';
+import { WizardService } from '../../services/wizard.service';
 
 @Component({
   selector: 'app-option',
@@ -9,10 +10,15 @@ import { IOption } from '../../interfaces/option.interfaces';
 export class OptionComponent {
   @Input()
   public option: IOption;
-  @Output()
-  public optionSelected = new EventEmitter<string>();
+
+  constructor(private wizardService: WizardService) {
+  }
+
+  public isOptionSelected(optionValue: string): boolean {
+    return this.wizardService.wizardData.formBody.option === optionValue;
+  }
 
   public onSelectOption(optionValue: string): void {
-    this.optionSelected.emit(optionValue);
+    this.wizardService.wizardData.formBody.option = optionValue;
   }
 }

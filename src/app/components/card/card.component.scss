@@ -72,7 +72,7 @@ $card-btn-border: solid 1px $blue;
   }
 
   .card-btn {
-    @include button-styles($white, $blue, $blue);
+    @include button-styles(blue);
     width: 100%;
   }
 }

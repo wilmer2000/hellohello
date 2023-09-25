@@ -1,8 +1,8 @@
 @import "colors";
 @import "sizes";
 
-@mixin box-shadow {
-  box-shadow: 0px 8px 16px rgba(86, 80, 76, 0.04), 0px 2px 16px rgba(86, 80, 76, 0.04), 0px 1px 4px rgba(86, 80, 76, 0.04);
+@mixin box-shadow($sh1: 0px 8px 16px rgba(86, 80, 76, 0.04), $sh2: 0px 2px 16px rgba(86, 80, 76, 0.04), $sh3: 0px 1px 4px rgba(86, 80, 76, 0.04)) {
+  box-shadow: $sh1, $sh2, $sh3;
 }
 
 @mixin border-radius($size: 5px) {
@@ -16,6 +16,7 @@
     .wizard-field-title {
       margin: 0 0 $size-40;
     }
+
     .wizard-field-icon {
       width: $wizard-icon-size;
       margin-bottom: $size-30;
@@ -23,15 +24,49 @@
   }
 }
 
-@mixin button-styles($background: $orange, $color: $white, $border-color: $orange) {
+@mixin button-styles($type-button: default) {
   @include border-radius();
-  padding: $size-15;
+  padding: $size-15 $size-30;
   font-weight: 700;
-  background: $background;
-  color: $color;
-  border: 1px solid $border-color;
+  color: $white;
+  border: solid 1px;
+  transition: all 100ms ease-out;
 
   &:hover {
     cursor: pointer;
+  }
+
+  @if $type-button == default {
+    border-color: $gray;
+    background: $gray;
+    &:hover {
+      border-color: $gray-elem-disabled;
+      background: $gray-elem-disabled;
+    }
+  }
+
+  @if $type-button == orange {
+    background: $orange;
+    border-color: $orange;
+    &:hover {
+      background: $orange-lighter;
+      border-color: $orange-lighter;
+    }
+  }
+
+  @if $type-button == blue {
+    background: $white;
+    border-color: $blue;
+    color: $blue;
+    &:hover {
+      background: $blue-lighter;
+      border-color: $blue-lighter;
+      color: $white;
+    }
+  }
+
+  &:disabled {
+    background: $gray-elem-disabled;
+    border-color: $gray-elem-disabled;
   }
 }

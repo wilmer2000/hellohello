@@ -1,26 +1,50 @@
 @import "colors";
 @import "sizes";
+@import "mixin";
+
+$field-border-size: 2px solid $gray;
+$field-hover-border-size: 2px solid $orange;
+$field-error-pos-bottom: -25px;
+$field-error-pos-left: 3px;
 
 .field-group {
+  position: relative;
+
   .field-label {
     display: block;
     color: $gray-darker;
-    font-weight: 400;
-    font-size: 0.9em;
+    font-weight: 700;
+    font-size: 0.8em;
     margin-bottom: 10px;
     line-height: 1;
   }
 
   .field-input {
+    @include border-radius();
     display: block;
     padding: 10px 15px;
-    border: 2px solid black;
-    border-radius: 5px;
+    border: $field-border-size;
     width: 100%;
+
+    &:hover,
+    &:focus {
+      border: $field-hover-border-size;
+    }
+
+    &.field-has-error {
+      border-color: $red;
+    }
   }
 
   .field-error {
     display: block;
     color: $red;
+    font-weight: 400;
+    font-size: 0.70em;
+    position: absolute;
+    z-index: -1;
+    bottom: $field-error-pos-bottom;
+    left: $field-error-pos-left;
+    transition: opacity 100ms ease-in;
   }
 }

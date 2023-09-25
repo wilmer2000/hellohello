@@ -1,42 +1,28 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IFormBody } from '../../interfaces/form-body.interfaces';
-import { OptionsListComponent } from '../options-list/options-list.component';
-import { EmailFormComponent } from '../email-form/email-form.component';
-import { SuccessFormComponent } from '../success-form/success-form.component';
-import { IOption } from '../../interfaces/option.interfaces';
-
-export interface IWizardInputs {
-  formBody: IFormBody;
-  optionsList: IOption[];
-}
+import { Component } from '@angular/core';
+import { WizardService, WizardStepList } from '../../services/wizard.service';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-wizard',
   templateUrl: './wizard-form.component.html',
-  styleUrls: ['./wizard-form.component.scss']
+  styleUrls: ['./wizard-form.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      state('in', style({ opacity: 1, transform: 'translateY(0)' })),
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(50px)', delay: '400ms' }),
+        animate('300ms ease-in', style({ opacity: 1, transform: 'translateY(0)' })),
+      ]),
+      transition(':leave', [
+        animate('200ms ease-out', style({ opacity: 0, transform: 'translateY(50px)' })),
+      ]),
+    ]),
+  ],
+
 })
 export class WizardFormComponent {
-  @Output()
-  public onSubmitForm = new EventEmitter<IFormBody>();
-  @Input()
-  public wizardInput: IWizardInputs;
+  protected readonly WizardStepList = WizardStepList;
 
-  public currentStep = 2;
-  public readonly FORM_WIZARD_STEPS = [
-    { id: 'WIZARD_STEP_1', component: OptionsListComponent },
-    { id: 'WIZARD_STEP_2', component: EmailFormComponent },
-    { id: 'WIZARD_STEP_3', component: SuccessFormComponent }
-  ];
-
-  public nextStep() {
-    if (this.currentStep < this.FORM_WIZARD_STEPS.length - 1) {
-      this.currentStep++;
-    }
-  }
-
-  public prevStep() {
-    if (this.currentStep > 0) {
-      this.currentStep--;
-    }
+  constructor(public wizardService: WizardService) {
   }
 }
